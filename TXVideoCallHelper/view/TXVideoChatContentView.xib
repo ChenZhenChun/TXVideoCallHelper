@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view tag="52786412876" contentMode="scaleToFill" id="iN0-l3-epB" customClass="TXVideoChatContentView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cog-GZ-thz" userLabel="Big Video View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="切换摄像头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rh6-tx-Tpq">
+                    <rect key="frame" x="245.5" y="631" width="66.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-vv-RYx">
+                    <rect key="frame" x="63" y="552" width="67" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="8lY-zM-gbv"/>
+                        <constraint firstAttribute="width" constant="67" id="SHd-Ft-L51"/>
+                    </constraints>
+                    <state key="normal" image="btn_vcancel.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="hangupAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="AfV-Sa-lAZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InQ-aa-esv">
+                    <rect key="frame" x="245" y="552" width="67" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="JQr-88-lfY"/>
+                        <constraint firstAttribute="width" constant="67" id="nJF-wh-xwm"/>
+                    </constraints>
+                    <state key="normal" image="btn_turn.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="switchCamera:" destination="iN0-l3-epB" eventType="touchUpInside" id="sxi-Lo-yTF"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="挂断" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9f-2G-rQf">
+                    <rect key="frame" x="83" y="631" width="27" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="vwg-ec-WL0" userLabel="Big Video View">
+                    <rect key="frame" x="236" y="0.0" width="139" height="182"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="182" id="TAB-1K-wc1"/>
+                        <constraint firstAttribute="width" constant="139" id="UHa-WG-10g"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUr-gW-lmx">
+                    <rect key="frame" x="23" y="56" width="26" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="26" id="d4h-cm-mi5"/>
+                        <constraint firstAttribute="height" constant="25" id="s1x-26-lUZ"/>
+                    </constraints>
+                    <state key="normal" image="btn_scale.png"/>
+                    <connections>
+                        <action selector="reduceBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="nXA-Yt-cSV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="BUr-gW-lmx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="23" id="12d-qI-89G"/>
+                <constraint firstItem="Cog-GZ-thz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4AQ-LB-tK0"/>
+                <constraint firstItem="Cog-GZ-thz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8Gx-9F-PKt"/>
+                <constraint firstAttribute="bottom" secondItem="F9f-2G-rQf" secondAttribute="bottom" constant="20" id="DwZ-9b-bcH"/>
+                <constraint firstAttribute="trailing" secondItem="vwg-ec-WL0" secondAttribute="trailing" id="Jrj-PX-au6"/>
+                <constraint firstAttribute="trailing" secondItem="InQ-aa-esv" secondAttribute="trailing" constant="63" id="QUK-Ly-99w"/>
+                <constraint firstAttribute="trailing" secondItem="Cog-GZ-thz" secondAttribute="trailing" id="SMZ-qH-NIy"/>
+                <constraint firstItem="BUr-gW-lmx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="56" id="YUk-lZ-WOm"/>
+                <constraint firstItem="F9f-2G-rQf" firstAttribute="top" secondItem="vJi-vv-RYx" secondAttribute="bottom" constant="12" id="aYz-gv-hw4"/>
+                <constraint firstAttribute="bottom" secondItem="Rh6-tx-Tpq" secondAttribute="bottom" constant="20" id="cBx-xc-Oyn"/>
+                <constraint firstItem="vJi-vv-RYx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="ePL-TC-pBF"/>
+                <constraint firstItem="F9f-2G-rQf" firstAttribute="centerX" secondItem="vJi-vv-RYx" secondAttribute="centerX" id="k97-tg-dPw"/>
+                <constraint firstItem="Rh6-tx-Tpq" firstAttribute="centerX" secondItem="InQ-aa-esv" secondAttribute="centerX" id="l53-dG-6Nx"/>
+                <constraint firstItem="vwg-ec-WL0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mjY-pW-fTX"/>
+                <constraint firstItem="Rh6-tx-Tpq" firstAttribute="top" secondItem="InQ-aa-esv" secondAttribute="bottom" constant="12" id="ukN-RT-xKH"/>
+                <constraint firstAttribute="bottom" secondItem="Cog-GZ-thz" secondAttribute="bottom" id="zZr-Rj-MO1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bigVideoView" destination="Cog-GZ-thz" id="aSz-fW-z52"/>
+                <outlet property="hungUpBtn" destination="vJi-vv-RYx" id="NEl-QV-eNj"/>
+                <outlet property="hungUpLabel" destination="F9f-2G-rQf" id="hTT-8K-xjQ"/>
+                <outlet property="smallTransferBtn" destination="BUr-gW-lmx" id="oRF-Ty-59S"/>
+                <outlet property="smallVideoView" destination="vwg-ec-WL0" id="4uR-sh-bX2"/>
+                <outlet property="switchCameraBtn" destination="InQ-aa-esv" id="lVH-r7-f2n"/>
+                <outlet property="switchCameraLabel" destination="Rh6-tx-Tpq" id="6z0-4E-EZJ"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="128"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_scale.png" width="25.666666030883789" height="25"/>
+        <image name="btn_turn.png" width="67" height="67"/>
+        <image name="btn_vcancel.png" width="67" height="67"/>
+        <image name="netcall_bkg.png" width="375" height="667"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
