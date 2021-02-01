@@ -23,11 +23,6 @@ s.subspec 'image' do |ss|
 ss.resources = 'TXVideoCallHelper/image/*.png'
 end
 
-s.subspec 'subView' do |ss|
-ss.source_files = 'TXVideoCallHelper/view/subView/*.{h,m,xib}'
-ss.public_header_files = 'TXVideoCallHelper/view/subView/*.h'
-end
-
 #TXVideoCallHelper模块
 s.subspec 'view' do |ss|
 ss.source_files = 'TXVideoCallHelper/view/*.{h,m,xib}'

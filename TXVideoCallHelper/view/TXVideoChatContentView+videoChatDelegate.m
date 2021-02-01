@@ -11,7 +11,6 @@
 #import "TXVideoChatContentView+Pinch.h"
 #import "TXVideoChatContentView+TXLIVE.h"
 #import <TXLiteAVSDK_Professional/TRTCCloudDelegate.h>
-#import "TXVideoSmallView.h"
 #import "NSObject+GLHUD.h"
 
 @interface TXVideoChatContentView ()<TRTCCloudDelegate>

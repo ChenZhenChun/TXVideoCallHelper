@@ -8,7 +8,6 @@
 
 #import "TXVideoChatContentView+TXMeetingVideo.h"
 #import <TXLiteAVSDK_Professional/TRTCCloud.h>
-#import "TXVideoSmallView.h"
 #import <objc/runtime.h>
 
 @interface TXVideoChatContentView()
