@@ -5,7 +5,6 @@
 //  Created by czc on 2021/1/11.
 //  Copyright © 2021 zjjk. All rights reserved.
 //
-#import "TXVideoSmallView.h"
 
 typedef enum : NSUInteger {
     ChatRoomStatus_TimeOut = -2,//超时，无应答
@@ -41,7 +40,6 @@ typedef NS_ENUM(NSInteger, ZJTRTCRoleType) {
     ZJTRTCRoleAnchor            =  20,   ///< 主播
     ZJTRTCRoleAudience          =  21,   ///< 观众
 };
-
 
 @interface TXVideoChatContentView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *smallTransferBtn;//缩放按钮
