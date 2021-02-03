@@ -12,7 +12,7 @@
 @implementation TXVideoChatContentView (TXLIVE)
 
 - (void)onUserVideoAvailableLiveVideo:(NSString *)userId available:(BOOL)availabl {
-    if (self.role==ZJTRTCRoleAnchor) {
+    if (self.role==TRTCRoleAnchor) {
         [[TRTCCloud sharedInstance] startLocalPreview:YES view:self.bigVideoView];
         [[TRTCCloud sharedInstance] startLocalAudio:TRTCAudioQualityDefault];
     }else {

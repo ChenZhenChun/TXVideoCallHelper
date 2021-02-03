@@ -5,7 +5,7 @@
 //  Created by czc on 2021/1/11.
 //  Copyright © 2021 zjjk. All rights reserved.
 //
-
+#import <TXLiteAVSDK_Professional/TRTCCloud.h>
 typedef enum : NSUInteger {
     ChatRoomStatus_TimeOut = -2,//超时，无应答
     ChatRoomStatus_Refuse = -1,//对方决绝接听
@@ -36,10 +36,10 @@ typedef enum : NSUInteger {
     ZJTRTCAppSceneVoiceMeeting  = 5,
 } ZJTRTCAppScene;
 
-typedef NS_ENUM(NSInteger, ZJTRTCRoleType) {
-    ZJTRTCRoleAnchor            =  20,   ///< 主播
-    ZJTRTCRoleAudience          =  21,   ///< 观众
-};
+//typedef NS_ENUM(NSInteger, ZJTRTCRoleType) {
+//    ZJTRTCRoleAnchor            =  20,   ///< 主播
+//    ZJTRTCRoleAudience          =  21,   ///< 观众
+//};
 
 @interface TXVideoChatContentView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *smallTransferBtn;//缩放按钮
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger, ZJTRTCRoleType) {
 @property (nonatomic,copy) NSString *userName;
 
 //直播
-@property (nonatomic, assign) ZJTRTCRoleType role;//角色
+@property (nonatomic, assign) TRTCRoleType role;//角色
 
 @property (nonatomic,assign) ChatRoomStatus status;//是否建立过连接 -2：对方无应答 -1:对方拒绝接听 0：自己取消 1：接通挂断
 @property (nonatomic,copy) void(^onCallEstablished)(UInt64 roomId);//建立连接

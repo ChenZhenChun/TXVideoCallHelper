@@ -274,7 +274,7 @@
         [mixUsers addObject:remote1];
     }else if (self.scene == ZJTRTCAppSceneLIVE) {
         // 主播摄像头的画面位置
-        if (self.role != ZJTRTCRoleAnchor) {
+        if (self.role != TRTCRoleAnchor) {
             return;
         }else {
             TRTCMixUser* local = [TRTCMixUser new];
