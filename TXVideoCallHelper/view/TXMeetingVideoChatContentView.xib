@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="B2E-VU-HvF" userLabel="Big Video View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TXVideoCall_netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="B2E-VU-HvF" userLabel="Big Video View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKI-WU-MtW">
@@ -26,7 +26,7 @@
                                 <constraint firstAttribute="width" constant="67" id="Nnu-T9-fcv"/>
                                 <constraint firstAttribute="height" constant="67" id="hO8-nU-Y3t"/>
                             </constraints>
-                            <state key="normal" image="btn_turn.png">
+                            <state key="normal" image="TXVideoCall_btn_turn.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -46,7 +46,7 @@
                                 <constraint firstAttribute="height" constant="67" id="Q5I-xK-Yv1"/>
                                 <constraint firstAttribute="width" constant="67" id="Ufl-Sn-Ket"/>
                             </constraints>
-                            <state key="normal" image="btn_mute.png">
+                            <state key="normal" image="TXVideoCall_btn_mute.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -66,7 +66,7 @@
                                 <constraint firstAttribute="width" constant="67" id="Cnp-nw-XYk"/>
                                 <constraint firstAttribute="height" constant="67" id="mG6-56-MhT"/>
                             </constraints>
-                            <state key="normal" image="btn_vcancel.png">
+                            <state key="normal" image="TXVideoCall_btn_vcancel.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -86,7 +86,7 @@
                                 <constraint firstAttribute="height" constant="25" id="FoB-aB-j6c"/>
                                 <constraint firstAttribute="width" constant="26" id="hdr-BV-kcZ"/>
                             </constraints>
-                            <state key="normal" image="btn_scale.png"/>
+                            <state key="normal" image="TXVideoCall_btn_scale.png"/>
                             <connections>
                                 <action selector="reduceBtnAction:" destination="iJk-yJ-0uq" eventType="touchUpInside" id="Wad-p6-I3M"/>
                             </connections>
@@ -137,11 +137,11 @@
         </view>
     </objects>
     <resources>
-        <image name="btn_mute.png" width="67" height="67"/>
-        <image name="btn_scale.png" width="25.666666030883789" height="25"/>
-        <image name="btn_turn.png" width="67" height="67"/>
-        <image name="btn_vcancel.png" width="67" height="67"/>
-        <image name="netcall_bkg.png" width="375" height="667"/>
+        <image name="TXVideoCall_btn_mute.png" width="67" height="67"/>
+        <image name="TXVideoCall_btn_scale.png" width="25.666666030883789" height="25"/>
+        <image name="TXVideoCall_btn_turn.png" width="67" height="67"/>
+        <image name="TXVideoCall_btn_vcancel.png" width="67" height="67"/>
+        <image name="TXVideoCall_netcall_bkg.png" width="375" height="667"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

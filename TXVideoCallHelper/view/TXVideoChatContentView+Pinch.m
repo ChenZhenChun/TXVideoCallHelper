@@ -27,7 +27,7 @@
 - (IBAction)reduceBtnAction:(UIButton *)sender {
     if (!sender.isSelected) {
         sender.hidden = YES;
-        
+        [self getInvitedView].hidden = YES;
         if (self.scene == ZJTRTCAppSceneVideoCall) {
             self.smallVideoView.hidden = YES;
             self.hungUpBtn.hidden = YES;
@@ -73,6 +73,7 @@
     self.smallTransferBtn.selected = NO;
     self.smallTransferBtn.hidden = NO;
     self.layer.cornerRadius = 0;
+    [self getInvitedView].hidden = NO;
     if (self.scene == ZJTRTCAppSceneVideoCall) {
         self.smallVideoView.hidden = NO;
         self.hungUpBtn.hidden = NO;

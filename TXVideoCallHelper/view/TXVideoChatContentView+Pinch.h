@@ -13,4 +13,7 @@
 /// 注册手势事件
 - (void)registerGestureRecognizer;
 
+/// 缩小操作
+/// @param sender smallTransferBtn
+- (void)reduceBtnAction:(UIButton *)sender;
 @end

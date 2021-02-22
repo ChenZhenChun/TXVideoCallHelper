@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "TXVideoCallHelper"
 
 #更新代码必须修改版本号
-s.version           = "1.0.2"
+s.version           = "1.0.3"
 s.summary           = "It is a TXVideoCallHelper used on iOS, which implement by Objective-C"
 s.description       = <<-DESC
 It is a TXVideoCallHelper used on iOS, which implement by Objective-C.
