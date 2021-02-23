@@ -124,7 +124,7 @@
         }
 
         self.invitedChatView.userNameL.text = self.userName?:@"";
-        [self.invitedChatView.photoImgV sd_setImageWithURL:[NSURL URLWithString:self.photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.invitedChatView.photoImgV sd_setImageWithURL:[NSURL URLWithString:self.photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             
         }];
     }else {
@@ -151,11 +151,11 @@
     sender.selected = !sender.selected;
     if (sender.isSelected) {
         //静音
-        [sender setImage:[UIImage imageNamed:@"TXVideoCall_btn_mute_hl"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_mute_hl"] forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] muteLocalAudio:YES];
     }else {
         //非静音
-        [sender setImage:[UIImage imageNamed:@"TXVideoCall_btn_mute"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_mute"] forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] muteLocalAudio:NO];
     }
 }
@@ -165,11 +165,11 @@
     sender.selected = !sender.selected;
     if (sender.isSelected) {
         //免提（扬声器）
-        [sender setImage:[UIImage imageNamed:@"TXVideoCall_btn_audioMode_hl"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_audioMode_hl"] forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeSpeakerphone];
     }else {
         //非免提（听筒）
-        [sender setImage:[UIImage imageNamed:@"TXVideoCall_btn_audioMode"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_audioMode"] forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeEarpiece];
     }
 }
@@ -194,7 +194,11 @@
             self.onCallDisconnected([[NSError alloc] initWithDomain:@"" code:ChatRoomStatus_TimeOut userInfo:nil]);
             self.onCallDisconnected = nil;
         }
-        [self hud_showHintTip:@"对方无应答"];
+        if (self.isInvited) {
+            [self hud_showHintTip:@"通话超时"];
+        }else {
+            [self hud_showHintTip:@"对方无应答"];
+        }
     }else if (self.status == ChatRoomStatus_Cancel) {
         //自己取消
         if (self.onCallDisconnected) {
@@ -207,7 +211,7 @@
     }else if (self.status == ChatRoomStatus_RefuseHangup) {
         //拒绝邀请
         if (self.onCallDisconnected) {
-            self.onCallDisconnected([[NSError alloc] initWithDomain:@"" code:ChatRoomStatus_Cancel userInfo:nil]);
+            self.onCallDisconnected([[NSError alloc] initWithDomain:@"" code:ChatRoomStatus_RefuseHangup userInfo:nil]);
             self.onCallDisconnected = nil;
         }
         if (self.scene != ZJTRTCAppSceneVideoMeeting) {
@@ -264,7 +268,7 @@
 
 - (void)setPhotoUrl:(NSString *)photoUrl {
     _photoUrl = photoUrl;
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
     }];
 }

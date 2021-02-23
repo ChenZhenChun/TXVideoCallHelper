@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TXVideoCall_netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Txu-jo-u1F" userLabel="Big Video View">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TXVideoCallHelper.bundle/TXVideoCall_netcall_bkg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Txu-jo-u1F" userLabel="Big Video View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -57,7 +57,7 @@
                         <constraint firstAttribute="width" constant="26" id="fj6-oi-kZR"/>
                         <constraint firstAttribute="height" constant="25" id="qNR-8c-nhv"/>
                     </constraints>
-                    <state key="normal" image="TXVideoCall_btn_scale.png"/>
+                    <state key="normal" image="TXVideoCallHelper.bundle/TXVideoCall_btn_scale.png"/>
                     <connections>
                         <action selector="smallBtnClickAction:" destination="TFf-M5-B4P" eventType="touchUpInside" id="e8b-d7-ltW"/>
                     </connections>
@@ -71,7 +71,7 @@
                                 <constraint firstAttribute="height" constant="67" id="bpe-F2-owb"/>
                                 <constraint firstAttribute="width" constant="67" id="djH-z2-MKY"/>
                             </constraints>
-                            <state key="normal" image="TXVideoCall_btn_agree.png">
+                            <state key="normal" image="TXVideoCallHelper.bundle/TXVideoCall_btn_agree.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -91,7 +91,7 @@
                                 <constraint firstAttribute="height" constant="67" id="DoS-3Y-EyZ"/>
                                 <constraint firstAttribute="width" constant="67" id="SUL-E6-Irr"/>
                             </constraints>
-                            <state key="normal" image="TXVideoCall_btn_vcancel.png">
+                            <state key="normal" image="TXVideoCallHelper.bundle/TXVideoCall_btn_vcancel.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -151,9 +151,9 @@
         </view>
     </objects>
     <resources>
-        <image name="TXVideoCall_btn_agree.png" width="67" height="67"/>
-        <image name="TXVideoCall_btn_scale.png" width="25.666666030883789" height="25"/>
-        <image name="TXVideoCall_btn_vcancel.png" width="67" height="67"/>
-        <image name="TXVideoCall_netcall_bkg.png" width="375" height="667"/>
+        <image name="TXVideoCallHelper.bundle/TXVideoCall_btn_agree.png" width="128" height="128"/>
+        <image name="TXVideoCallHelper.bundle/TXVideoCall_btn_scale.png" width="128" height="128"/>
+        <image name="TXVideoCallHelper.bundle/TXVideoCall_btn_vcancel.png" width="128" height="128"/>
+        <image name="TXVideoCallHelper.bundle/TXVideoCall_netcall_bkg.png" width="128" height="128"/>
     </resources>
 </document>

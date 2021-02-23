@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "TXVideoCallHelper"
 
 #更新代码必须修改版本号
-s.version           = "1.0.3"
+s.version           = "1.0.4"
 s.summary           = "It is a TXVideoCallHelper used on iOS, which implement by Objective-C"
 s.description       = <<-DESC
 It is a TXVideoCallHelper used on iOS, which implement by Objective-C.
@@ -20,7 +20,7 @@ s.requires_arc = true
 #source_files路径是相对podspec文件的路径
 #image模块
 s.subspec 'image' do |ss|
-ss.resources = 'TXVideoCallHelper/image/*.png'
+ss.resources = 'TXVideoCallHelper/image/TXVideoCallHelper.bundle'
 end
 
 #TXVideoCallHelper/subView模块
