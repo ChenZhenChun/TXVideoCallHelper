@@ -15,6 +15,8 @@
 #import "NSObject+GLHUD.h"
 #import "TXInvitedChatContentView.h"
 
+#define GetXMZJUIImage(NAME) [UIImage imageNamed:[NSString stringWithFormat:@"TXVideoCallHelper.bundle/%@",NAME] inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]
+
 @interface TXVideoChatContentView ()<TRTCCloudDelegate>
 @property (nonatomic,assign) CGSize intrinsicContentSize;
 @property (nonatomic,copy) NSString *userId;
@@ -124,7 +126,7 @@
         }
 
         self.invitedChatView.userNameL.text = self.userName?:@"";
-        [self.invitedChatView.photoImgV sd_setImageWithURL:[NSURL URLWithString:self.photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.invitedChatView.photoImgV sd_setImageWithURL:[NSURL URLWithString:self.photoUrl] placeholderImage:GetXMZJUIImage(@"TXVideoCall_videoDefaultPhoto") options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             
         }];
     }else {
@@ -151,11 +153,11 @@
     sender.selected = !sender.selected;
     if (sender.isSelected) {
         //静音
-        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_mute_hl"] forState:UIControlStateNormal];
+        [sender setImage:GetXMZJUIImage(@"TXVideoCall_btn_mute_hl") forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] muteLocalAudio:YES];
     }else {
         //非静音
-        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_mute"] forState:UIControlStateNormal];
+        [sender setImage:GetXMZJUIImage(@"TXVideoCall_btn_mute") forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] muteLocalAudio:NO];
     }
 }
@@ -165,11 +167,11 @@
     sender.selected = !sender.selected;
     if (sender.isSelected) {
         //免提（扬声器）
-        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_audioMode_hl"] forState:UIControlStateNormal];
+        [sender setImage:GetXMZJUIImage(@"TXVideoCall_btn_audioMode_hl") forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeSpeakerphone];
     }else {
         //非免提（听筒）
-        [sender setImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_btn_audioMode"] forState:UIControlStateNormal];
+        [sender setImage:GetXMZJUIImage(@"TXVideoCall_btn_audioMode") forState:UIControlStateNormal];
         [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeEarpiece];
     }
 }
@@ -268,7 +270,7 @@
 
 - (void)setPhotoUrl:(NSString *)photoUrl {
     _photoUrl = photoUrl;
-    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:photoUrl] placeholderImage:[UIImage imageNamed:@"TXVideoCallHelper.bundle/TXVideoCall_videoDefaultPhoto"] options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [_photoImgV sd_setImageWithURL:[NSURL URLWithString:photoUrl] placeholderImage:GetXMZJUIImage(@"TXVideoCall_videoDefaultPhoto") options:SDWebImageAllowInvalidSSLCertificates completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         
     }];
 }
