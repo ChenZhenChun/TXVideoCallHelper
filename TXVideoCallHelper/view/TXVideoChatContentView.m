@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "NSObject+GLHUD.h"
 #import "TXInvitedChatContentView.h"
+#import "ZOEAlertView.h"
 
 #define GetXMZJUIImage(NAME) [UIImage imageNamed:[NSString stringWithFormat:@"TXVideoCallHelper.bundle/%@",NAME] inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]
 
@@ -92,15 +93,20 @@
         if (strongSelf.scene == ZJTRTCAppSceneVideoCall
             ||strongSelf.scene == ZJTRTCAppSceneVideoMeeting) {
             //视频会议、1对1视频通话
+            [strongSelf permissionIdentify:1];
+            [strongSelf permissionIdentify:2];
             [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeSpeakerphone];
             [[TRTCCloud sharedInstance] enterRoom:params appScene:TRTCAppSceneVideoCall];
         }else if (strongSelf.scene == ZJTRTCAppSceneAudioCall) {
             //语音通话
+            [strongSelf permissionIdentify:2];
             [[TRTCCloud sharedInstance] setDefaultStreamRecvMode:YES video:NO];
             [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeEarpiece];
             [[TRTCCloud sharedInstance] enterRoom:params appScene:TRTCAppSceneAudioCall];
         }else if (strongSelf.scene == ZJTRTCAppSceneLIVE) {
             //直播
+            [strongSelf permissionIdentify:1];
+            [strongSelf permissionIdentify:2];
             [[TRTCCloud sharedInstance] setAudioRoute:TRTCAudioModeSpeakerphone];
             [[[TRTCCloud sharedInstance] getBeautyManager] setBeautyStyle:TXBeautyStylePitu];
             [[[TRTCCloud sharedInstance] getBeautyManager] setBeautyLevel:5];
@@ -313,6 +319,65 @@
         [strongSelf hidden];
     };
     return _invitedChatView;
+}
+
+
+/// 授权判断
+/// @param mediaType 1：摄像头  2：麦克风
+- (void)permissionIdentify:(NSInteger)mediaType {
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_7_1) {
+    }else {
+        // iOS 8 后，全部都要授权
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:(mediaType==1?AVMediaTypeVideo:AVMediaTypeAudio)];
+        switch (status) {
+            case AVAuthorizationStatusNotDetermined: {
+                // 许可对话没有出现，发起授权许可
+                [AVCaptureDevice requestAccessForMediaType:(mediaType==1?AVMediaTypeVideo:AVMediaTypeAudio) completionHandler:^(BOOL granted) {
+                    if (granted) {
+                        //第一次用户接受
+                    }else{
+                        if (mediaType==1) {
+                            [self hud_showHintTip:@"没有相机权限或设备相机无法访问"];
+                        }else {
+                            [self hud_showHintTip:@"没有麦克风权限或设备麦克风无法访问"];
+                        }
+                        
+                    }
+                }];
+                break;
+            }
+            case AVAuthorizationStatusAuthorized: {
+                // 已经开启授权，可继续
+                break;
+            }
+            case AVAuthorizationStatusDenied:
+            case AVAuthorizationStatusRestricted:
+            {
+                // 用户明确地拒绝授权，或者相机设备无法访问
+                NSString *message;
+                if (mediaType == 1) {
+                    message = @"需要开启相机权限才能使用，是否去开启？";
+                }else {
+                    message = @"需要开启麦克风权限才能使用，是否去开启？";
+                }
+                ZOEAlertView *alertView = [[ZOEAlertView alloc] initWithTitle:@"提醒" message:message cancelButtonTitle:@"取消" otherButtonTitles:@"去开启", nil];
+                [alertView setButtonTextColor:[UIColor colorWithRed:71/255.0 green:133/255.0 blue:255/255.0 alpha:1] buttonIndex:1];
+                [alertView setButtonTextColor:[UIColor colorWithRed:142/255.0 green:142/255.0 blue:142/255.0 alpha:1] buttonIndex:0];
+                [alertView showWithBlock:^(NSInteger buttonIndex) {
+                    if (buttonIndex!=alertView.cancelButtonIndex) {
+                        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                            [[UIApplication sharedApplication] openURL:url];
+                        }
+                    }
+                }];
+                break;
+            }
+            default:
+                break;
+        }
+        
+    }
 }
 
 @end

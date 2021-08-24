@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 s.name              = "TXVideoCallHelper"
 
 #更新代码必须修改版本号
-s.version           = "1.0.5"
+s.version           = "1.0.6"
 s.summary           = "It is a TXVideoCallHelper used on iOS, which implement by Objective-C"
 s.description       = <<-DESC
 It is a TXVideoCallHelper used on iOS, which implement by Objective-C.
@@ -39,6 +39,7 @@ ss.dependency 'TXVideoCallHelper/subView'
 ss.dependency 'SDWebImage'
 ss.dependency 'TXLiteAVSDK_Professional','8.1.9721'
 ss.dependency 'Categorys','~> 1.0'
+ss.dependency 'ZOEAlertView','~>1.5'
 end
 
 s.frameworks = 'Foundation', 'UIKit'
