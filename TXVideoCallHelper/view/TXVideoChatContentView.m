@@ -29,6 +29,10 @@
 @implementation TXVideoChatContentView
 
 - (instancetype)initWithTRTCAppScene:(ZJTRTCAppScene)scene {
+    return [TXVideoChatContentView initWithTRTCAppScene:scene];
+}
+
++ (instancetype)initWithTRTCAppScene:(ZJTRTCAppScene)scene {
     //场景布局选择
     NSString *nibName = @"TXVideoChatContentView";
     switch (scene) {
@@ -48,17 +52,17 @@
             nibName = @"TXVideoChatContentView";
             break;
     }
-    self = [[[NSBundle bundleForClass:[self class]] loadNibNamed:nibName owner:self options:nil] lastObject];
-    self.scene = scene;
-    self.layer.zPosition = MAXFLOAT;
-    self.backgroundColor = [UIColor blackColor];
-    self.layer.cornerRadius = 0;
-    self.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0,0);
-    self.layer.shadowOpacity = 1;
-    self.layer.shadowRadius = 10;
-    [self registerGestureRecognizer];
-    return self;
+    TXVideoChatContentView *videoView = [[[NSBundle bundleForClass:[self class]] loadNibNamed:nibName owner:self options:nil] lastObject];
+    videoView.scene = scene;
+    videoView.layer.zPosition = MAXFLOAT;
+    videoView.backgroundColor = [UIColor blackColor];
+    videoView.layer.cornerRadius = 0;
+    videoView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1].CGColor;
+    videoView.layer.shadowOffset = CGSizeMake(0,0);
+    videoView.layer.shadowOpacity = 1;
+    videoView.layer.shadowRadius = 10;
+    [videoView registerGestureRecognizer];
+    return videoView;
 }
 
 - (void)awakeFromNib {
@@ -183,6 +187,9 @@
 }
 
 - (void)dealloc {
+    if (!self.roomId) {
+        return;
+    }
     if (self.status == ChatRoomStatus_Hangup) {
         //通话结束
         if (self.onCallDisconnected) {
@@ -239,6 +246,7 @@
 }
 
 - (void)show {
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:self];
     __weak typeof(self) weakSelf = self;

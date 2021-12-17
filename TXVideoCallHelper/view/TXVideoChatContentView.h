@@ -85,9 +85,11 @@ typedef enum : NSUInteger {
 @property (nonatomic,copy) void(^refuseCallSDKBlock)(void);
 
 
-/// 根据scene标识加载布局页面
+/// 根据scene标识加载布局页面(请使用类方法初始化
 /// @param scene TRTCAppSceneVideoCall:视频通话  TRTCAppSceneAudioCall：语音通话
-- (instancetype)initWithTRTCAppScene:(ZJTRTCAppScene)scene;
++ (instancetype)initWithTRTCAppScene:(ZJTRTCAppScene)scene;
+- (instancetype)initWithTRTCAppScene:(ZJTRTCAppScene)scene DEPRECATED_MSG_ATTRIBUTE("Use +initWithTRTCAppScene: instead");
+
 - (void)show;
 - (void)hidden;
 
